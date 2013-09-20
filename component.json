@@ -1,0 +1,22 @@
+{
+  "name": "daterange",
+  "repo": "trevorgerhardt/daterange",
+  "description": "Date range component",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "moment/moment": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "style.css"
+  ],
+  "templates": [
+    "template.html"
+  ]
+}
