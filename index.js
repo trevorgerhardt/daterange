@@ -112,6 +112,14 @@ function DateRangePicker(element, options, cb) {
       this.endDate = moment(options.endDate, this.format);
     }
 
+    if (typeof options.compareStartDate == 'string') {
+      this.compareStartDate = moment(options.compareStartDate, this.format);
+    }
+
+    if (typeof options.compareEndDate == 'string') {
+      this.compareEndDate = moment(options.compareEndDate, this.format);
+    }
+
     if (typeof options.maxDate == 'string') {
       this.maxDate = moment(options.maxDate, this.format);
     }
@@ -229,6 +237,11 @@ function DateRangePicker(element, options, cb) {
   this.$apply = this.$ranges.find('.btn-success');
   this.$cancel = this.$ranges.find('.btn-default');
 
+  if (this.compareStartDate && this.compareEndDate) {
+    this.$checkbox.prop('checked', true);
+    this.$compareTo.val('custom');
+  }
+
   //event listeners
   this.container.on('mousedown', $.proxy(this.mousedown, this));
 
@@ -265,8 +278,7 @@ function DateRangePicker(element, options, cb) {
 
   this.element.on('keyup', $.proxy(this.updateFromControl, this));
 
-  this.updateView();
-  this.updateCalendars();
+  this.updateDateRange();
 }
 
 /**

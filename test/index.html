@@ -13,7 +13,12 @@
     <input class="daterange"></div>
     <script type="text/javascript">
     var daterange = require('daterange');
-    daterange($('input'));
+    daterange($('input'), {
+      startDate: '10/10/2012',
+      endDate: '11/10/2012',
+      compareStartDate: '09/10/2012',
+      compareEndDate: '10/10/2012'
+    });
     </script>
   </body>
 </html>
