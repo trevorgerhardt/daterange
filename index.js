@@ -238,6 +238,12 @@ function DateRangePicker(element, options, cb) {
   this.$cancel = this.$ranges.find('.btn-default');
 
   if (this.compareStartDate && this.compareEndDate) {
+    this.compareStartDate = this.compareStartDate.startOf('day');
+    this.compareEndDate = this.compareEndDate.startOf('day');
+
+    this.oldCompareStartDate = this.compareStartDate.clone();
+    this.oldCompareEndDate = this.compareEndDate.clone();
+
     this.$checkbox.prop('checked', true);
     this.$compareTo.val('custom');
   }
@@ -565,13 +571,6 @@ DateRangePicker.prototype.show = function (e) {
 DateRangePicker.prototype.hide = function (e) {
   this.container.hide();
 
-  if (!this.startDate.isSame(this.oldStartDate) || !this.endDate.isSame(this.oldEndDate)) {
-    this.notify();
-  }
-
-  this.oldStartDate = this.startDate.clone();
-  this.oldEndDate = this.endDate.clone();
-
   $(document).off('mousedown', this.hide);
   this.element.trigger('hidden', {
     picker: this
@@ -710,7 +709,10 @@ DateRangePicker.prototype.clickDate = function (e) {
  */
 
 DateRangePicker.prototype.clickApply = function (e) {
+  e.preventDefault();
+
   this.updateInputText();
+  this.notify();
   this.hide();
 };
 
@@ -719,6 +721,8 @@ DateRangePicker.prototype.clickApply = function (e) {
  */
 
 DateRangePicker.prototype.clickCancel = function (e) {
+  e.preventDefault();
+
   this.startDate = this.oldStartDate;
   this.endDate = this.oldEndDate;
   this.compareStartDate = this.oldCompareStartDate;
