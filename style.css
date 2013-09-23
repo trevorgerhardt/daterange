@@ -118,6 +118,11 @@
   white-space: nowrap;
 }
 
+.date-range td:empty {
+  height: 30px;
+  width: 30px;
+}
+
 .date-range td.off {
   color: #999;
 }
