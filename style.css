@@ -53,13 +53,13 @@
 }
 
 .date-range {
-  position: absolute;
+  position: fixed;
   top: 100px;
   left: 20px;
 }
 
 .date-range.opensleft:before {
-  position: absolute;
+  position: fixed;
   top: -7px;
   right: 9px;
   display: inline-block;
@@ -71,7 +71,7 @@
 }
 
 .date-range.opensleft:after {
-  position: absolute;
+  position: fixed;
   top: -6px;
   right: 10px;
   display: inline-block;
@@ -82,7 +82,7 @@
 }
 
 .date-range.opensright:before {
-  position: absolute;
+  position: fixed;
   top: -7px;
   left: 9px;
   display: inline-block;
@@ -94,7 +94,7 @@
 }
 
 .date-range.opensright:after {
-  position: absolute;
+  position: fixed;
   top: -6px;
   left: 10px;
   display: inline-block;

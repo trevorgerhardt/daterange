@@ -22,6 +22,9 @@ function DateRangePicker(element, options, cb) {
   var hasOptions = typeof options == 'object';
   var end, localeObject, range, start;
 
+  console.log(options);
+  console.log(typeof options.startDate);
+
   //option defaults
 
   this.startDate = moment().startOf('day');
@@ -124,11 +127,11 @@ function DateRangePicker(element, options, cb) {
       this.maxDate = moment(options.maxDate, this.format);
     }
 
-    if (typeof options.startDate == 'object') {
+    if (options.startDate && typeof options.startDate == 'object') {
       this.startDate = moment(options.startDate);
     }
 
-    if (typeof options.endDate == 'object') {
+    if (options.endDate && typeof options.endDate == 'object') {
       this.endDate = moment(options.endDate);
     }
 
