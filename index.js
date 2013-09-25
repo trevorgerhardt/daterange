@@ -33,7 +33,7 @@ function DateRangePicker(element, options, cb) {
 
   function validDate(s) {
     var d = moment(s, (typeof s === 'string' ? format : undefined));
-    if (!d.isValid()) {
+    if (!d || !d.isValid()) {
       d = moment();
     }
 
@@ -440,7 +440,10 @@ DateRangePicker.prototype.show = function (e) {
   }
 
   $(document).on('mousedown', $.proxy(this.hide, this));
-  this.element.trigger('shown', {target: e.target, picker: this});
+  this.element.trigger('shown', {
+    target: e.target,
+    picker: this
+  });
 };
 
 /**
