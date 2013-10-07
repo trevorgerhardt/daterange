@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "moment/moment": "*"
+    "moment/moment": "2.2.0"
   },
   "development": {},
   "license": "MIT",
